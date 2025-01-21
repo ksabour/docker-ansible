@@ -9,16 +9,16 @@ ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV PIPX_BIN_DIR=/usr/local/bin
 
 # Labels.
-LABEL maintainer="will@willhallonline.co.uk" \
+LABEL maintainer="ksabour@gmail.com" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.name="willhallonline/ansible" \
+    org.label-schema.name="ksabour/ansible" \
     org.label-schema.description="Ansible inside Docker" \
-    org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
-    org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
+    org.label-schema.url="https://github.com/ksabour/docker-ansible" \
+    org.label-schema.vcs-url="https://github.com/ksabour/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.16-ubuntu-24.04"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa ksabour/ansible:2.17-ubuntu-24.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y gnupg2 pipx sshpass git openssh-client && \
