@@ -3,9 +3,11 @@ FROM ubuntu:24.04
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
 ARG ANSIBLE_LINT
-ENV ANSIBLE_CORE_VERSION ${ANSIBLE_CORE_VERSION}
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION}
-ENV ANSIBLE_LINT ${ANSIBLE_LINT}
+#ARG BUILD_DATE
+ENV ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_VERSION}
+ENV ANSIBLE_VERSION=${ANSIBLE_VERSION}
+ENV ANSIBLE_LINT=${ANSIBLE_LINT}
+#ENV BUILD_DATE=${BUILD_DATE}
 ENV PIPX_BIN_DIR=/usr/local/bin
 
 # Labels.
@@ -17,7 +19,7 @@ LABEL maintainer="ksabour@gmail.com" \
     org.label-schema.description="Ansible inside Docker" \
     org.label-schema.url="https://github.com/ksabour/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/ksabour/docker-ansible" \
-    org.label-schema.vendor="Will Hall Online" \
+    org.label-schema.vendor="KSabour" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa ksabour/ansible:2.17-ubuntu-24.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
